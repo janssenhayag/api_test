@@ -9,3 +9,5 @@ Tags: test
 * Unsuccessful login
 * Check response of unknown user
 * Verify a user's data
+* Test patch
+* User not found

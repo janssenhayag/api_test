@@ -79,3 +79,17 @@ def verify_data():
     assert "support" in data
     assert data['data']['id'] == 2
     assert data['data']['year'] == 2001
+
+@step("Test patch")
+def patch_test():
+    r = requests.patch(base_url + "api/users/2", headers=headers, json={"name": "Sen"})
+    data = r.json()
+
+    assert r.status_code == 200
+    assert data['name'] == "Sen"
+
+@step("User not found")
+def not_found():
+    r = requests.get(base_url+"api/users/23", headers=headers)
+    
+    assert r.status_code == 404
